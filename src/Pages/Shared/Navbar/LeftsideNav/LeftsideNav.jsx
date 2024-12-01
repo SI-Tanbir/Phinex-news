@@ -1,16 +1,20 @@
 
 import React, { useEffect, useState } from 'react'
 import categories from '../../../../demo-data/categories.json'
+import leftNews from '../../../../demo-data/news.json'
 
 const LeftsideNav = () => {
 const [data,setData]=useState([]);
+const [news,setNews]=useState([]);
+
 
 useEffect(()=>{
 
   setData(categories)
+  setNews(leftNews)
 },[])
 
-console.log(data)
+ console.log(news)
   return (
     
     <div>
@@ -22,6 +26,17 @@ console.log(data)
       }
 
       <div>
+
+        {/* adding data */}
+      {
+       news.slice(1,4).map((res,index)=>(<div key={index}>
+
+        <img className='h-[280px]' src={res.thumbnail_url} alt="" />
+        <p>{res.title}</p>
+       </div>))
+        
+      }
+
 
 
       </div>
