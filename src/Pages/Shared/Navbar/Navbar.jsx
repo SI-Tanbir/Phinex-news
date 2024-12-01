@@ -1,6 +1,7 @@
 import React from "react";
 import LeftsideNav from "./LeftsideNav/LeftsideNav";
 import RightsideNav from "./RighsideNav/RightsideNav";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
@@ -16,8 +17,8 @@ const Navbar = () => {
   </div>
   <div className="flex-none gap-2">
     <ul className="flex gap-8">
-      <li>Home</li>
-      <li>About</li>
+      <li><Link to='/'>Home</Link></li>
+      <li><Link to='/register'>Register</Link></li>
       <li>Career</li>
     </ul>
     <div className="form-control">
@@ -29,7 +30,7 @@ const Navbar = () => {
         <div>
        
         </div>
-            <button className="btn btn-secondary">Login</button>
+            <Link to="/login"><button className="btn btn-secondary">Login</button></Link>
       </div>
       
     </div>
