@@ -2,6 +2,15 @@ import React from "react";
 import Navbar from "./Shared/Navbar/Navbar";
 
 const Register = () => {
+
+    const handleRegister=(e)=>{
+        e.preventDefault()
+        const email=e.target.email.value;
+        const password=e.target.password.value;
+        
+        console.log(email,password)
+    }
+
   return (
     <div>
       <Navbar></Navbar>
@@ -11,7 +20,7 @@ const Register = () => {
           <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
             Register Here Now
           </h1>
-          <form className="space-y-4">
+          <form onSubmit={handleRegister} className="space-y-4">
           <div>
               <label className="label">
                 <span className="text-base label-text">Enter Name</span>
@@ -27,6 +36,7 @@ const Register = () => {
                 <span className="text-base label-text">Email</span>
               </label>
               <input
+                name='email'
                 type="text"
                 placeholder="Email Address"
                 className="w-full input input-bordered input-primary"
@@ -37,6 +47,7 @@ const Register = () => {
                 <span className="text-base label-text">Password</span>
               </label>
               <input
+                name='password'
                 type="password"
                 placeholder="Enter Password"
                 className="w-full input input-bordered input-primary"
