@@ -14,7 +14,7 @@ useEffect(()=>{
   setNews(leftNews)
 },[])
 
- console.log(news)
+//  console.log(news)
   return (
     
     <div>
