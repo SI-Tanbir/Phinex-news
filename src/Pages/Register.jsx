@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "./Shared/Navbar/Navbar";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Register = () => {
+    const {createRegister}=useContext(AuthContext)
+    console.log(createRegister)
 
     const handleRegister=(e)=>{
         e.preventDefault()
         const email=e.target.email.value;
         const password=e.target.password.value;
-        
-        console.log(email,password)
-    }
 
+
+        createRegister(email,password)
+        .then(res=>console.log("resgister successful",res))
+        .catch(error=>{
+            console.error(error)
+        }
+
+        )
+        
+
+    }
+   
   return (
     <div>
       <Navbar></Navbar>
