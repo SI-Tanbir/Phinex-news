@@ -5,6 +5,7 @@ import RightsideNav from "./Shared/Navbar/RighsideNav/RightsideNav";
 import LeftsideNav from "./Shared/Navbar/LeftsideNav/LeftsideNav";
 import BreakingNews from "./Shared/Header/BreakingNews";
 import MainNews from "../demo-data/news.json"
+import { Link } from "react-router";
 
 
 
@@ -56,7 +57,14 @@ const Home = () => {
               </figure>
               <div className="card-body">
               
-                <p>{res.title}</p>
+                <p>{res.details.length > 200 ? res.details.slice(0,200):res.details
+                  }</p>
+                  <Link to={`/${res._id}`} 
+                  state={{ image_url: res.image_url, details: res.details }}
+                  >
+                  <p  className="text-right text-blue-600">Read more...</p>
+                  
+                  </Link>              
               </div>
             </div>
 

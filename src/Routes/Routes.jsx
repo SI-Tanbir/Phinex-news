@@ -4,6 +4,8 @@ import Roots from "../Layouts/Roots";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import News from "../Pages/News/News";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -24,6 +26,11 @@ let router = createBrowserRouter([
         {
           path:'/register',
           element:<Register></Register>
+        },
+        {
+          path:'/:id',
+          element:<PrivateRoute><News></News></PrivateRoute>
+          
         }
     ]
     

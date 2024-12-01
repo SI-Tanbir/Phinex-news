@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import LeftsideNav from "./LeftsideNav/LeftsideNav";
 import RightsideNav from "./RighsideNav/RightsideNav";
 import { Link } from "react-router";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+
+
+  const {checkUser,userSignOut}=useContext(AuthContext);
+
+  const handleSignout=()=>{
+    userSignOut()
+    .then(res=>console.log('signout successful ',res))
+
+  }
+
   return (
     <div >
 
@@ -28,11 +39,26 @@ const Navbar = () => {
     <div >
       <div >
         <div>
-       
+  
         </div>
-            <Link to="/login"><button className="btn btn-secondary">Login</button></Link>
+
+
+               {
+                checkUser?
+                  <button onClick={handleSignout} className="btn bg-red-600 text-white">Signout</button>
+                  :
+                
+                <div>
+                  <Link to="/login"><button className="btn btn-secondary">Login</button></Link>
+                  </div>
+        
+               }
+           
+            {/* <Link to="/login"><button className="btn btn-secondary">Login</button></Link> */}
+     
+     
       </div>
-      
+       
     </div>
   </div>
 </div>

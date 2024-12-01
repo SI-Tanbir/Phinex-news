@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "./Shared/Navbar/Navbar";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Login = () => {
 
+    const {userSignIn,checkUser}=useContext(AuthContext)
     const handleLogin=(e)=>{
 
         e.preventDefault()
@@ -10,6 +12,12 @@ const Login = () => {
         const password=e.target.password.value;
         
         console.log(email,password)
+
+        userSignIn(email,password)
+        .then(res=>console.log(res))
+        .catch(error=>{
+            console.error(error)
+        })
 
     }
 
