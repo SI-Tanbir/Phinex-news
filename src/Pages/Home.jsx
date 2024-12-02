@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "./Shared/Header/Header";
 import Navbar from "./Shared/Navbar/Navbar";
 import RightsideNav from "./Shared/Navbar/RighsideNav/RightsideNav";
@@ -6,11 +6,13 @@ import LeftsideNav from "./Shared/Navbar/LeftsideNav/LeftsideNav";
 import BreakingNews from "./Shared/Header/BreakingNews";
 import MainNews from "../demo-data/news.json"
 import { Link } from "react-router";
+import { AuthContext } from "../Providers/AuthProvider";
 
 
 
 
 const Home = () => {
+  const {loading} =useContext(AuthContext);
 
   const [main,setMain]=useState([]) ;
 
@@ -20,6 +22,11 @@ const Home = () => {
   
   return (
     <div className="font-poppins ">
+      
+
+      
+
+
       <Header></Header>
       <BreakingNews></BreakingNews>
       <Navbar></Navbar>

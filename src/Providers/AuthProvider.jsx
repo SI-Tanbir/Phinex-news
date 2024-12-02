@@ -10,6 +10,9 @@ import {
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+
+    const [loading,setLoading]=useState(true)
+    
     const [checkUser,updateUser]=useState(null)
 
     
@@ -18,27 +21,38 @@ const AuthProvider = ({ children }) => {
 
     useEffect(()=>{
 
-        onAuthStateChanged(auth, (observeUser) => {
-            console.log('current runing user ',observeUser)
-            updateUser(observeUser)
+        const unsubscribe= onAuthStateChanged(auth, (observeUser) => {
+
+          console.log('current runing user ',observeUser)
+          updateUser(observeUser)
+          setLoading(false)
+  
+          
+
         })
+        return ()=>unsubscribe();
+
 
     },[])
 
 
   const userSignOut = () => {
+    setLoading(true)
     return signOut(auth);
   };
 
   const userSignIn = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const createRegister = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password);
+
   };
 
-  const authInfo = { createRegister, userSignIn, userSignOut,checkUser};
+  const authInfo = { loading,createRegister, userSignIn, userSignOut,checkUser};
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

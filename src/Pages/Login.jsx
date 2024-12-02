@@ -8,7 +8,7 @@ const Login = () => {
   const navigate =useNavigate();
 
   const location=useLocation();
-  console.log('state data ',location)
+  // console.log('state data ',location)
     const {userSignIn,checkUser}=useContext(AuthContext)
     const handleLogin=(e)=>{
 
@@ -20,9 +20,10 @@ const Login = () => {
 
         userSignIn(email,password)
         .then(res=> {
-          console.log(res);
+          // console.log(res)
+          console.log(location.state)
           
-          navigate(location?.state ?location.state :'/')
+          navigate(location?.state ?location.state:'/')
 
 
         })

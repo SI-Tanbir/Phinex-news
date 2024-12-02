@@ -5,10 +5,10 @@ import { useLocation, useParams } from 'react-router'
 const News = () => {
     const location = useLocation();
     const { image_url, details } = location.state || {}; // Safely access the state
-
+// console.log(location.state)
 
     const { id } = useParams()
-    console.log( image_url)
+    console.log( )
 
   return (
     <div>
