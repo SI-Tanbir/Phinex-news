@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import LeftsideNav from "./LeftsideNav/LeftsideNav";
 import RightsideNav from "./RighsideNav/RightsideNav";
-import { Link } from "react-router";
+import { Link, useLoaderData, useLocation } from "react-router";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
                   :
                 
                 <div>
-                  <Link to="/login"><button className="btn btn-secondary">Login</button></Link>
+                  <Link to="/login"  ><button className="btn btn-secondary">Login</button></Link>
                   </div>
         
                }
