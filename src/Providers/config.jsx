@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA-93nlucczZrO2ZxcbMqqvu0Zo3Zpzess",
-  authDomain: "phinex-news.firebaseapp.com",
-  projectId: "phinex-news",
-  storageBucket: "phinex-news.firebasestorage.app",
-  messagingSenderId: "440857876869",
-  appId: "1:440857876869:web:069003d22dfeca049d8cec"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain:import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket:import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
